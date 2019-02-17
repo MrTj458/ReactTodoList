@@ -1,9 +1,9 @@
 import React from 'react'
 import Todo from './Todo'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 
 const TodoList = ({ todos, changeTodo, deleteTodo }) => {
-	if (todos.length > 0) {
+	if (todos && todos.length) {
 		return (
 			<Grid>
 				{todos.map((todo, index) => {
@@ -19,7 +19,11 @@ const TodoList = ({ todos, changeTodo, deleteTodo }) => {
 			</Grid>
 		)
 	} else {
-		return <h1>You don't have any todos.</h1>
+		return (
+			<Header as="h1" textAlign="center">
+				You don't have any todos.
+			</Header>
+		)
 	}
 }
 

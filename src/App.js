@@ -4,15 +4,22 @@ import TodoForm from './TodoForm'
 import { Header, Container, Divider } from 'semantic-ui-react'
 
 class App extends Component {
-	state = {
-		todos: [
-			'Learn JS',
-			'Learn React',
-			'Learn Redux',
-			'Learn Express',
-			'Learn MongoDB',
-			'Profit',
-		],
+	state = { todos: [] }
+
+	componentDidMount() {
+		if (localStorage.hasOwnProperty('todos')) {
+			const json = localStorage.getItem('todos')
+			const todos = JSON.parse(json)
+			this.setState({ todos })
+			console.log('Called did mount')
+		}
+
+		window.addEventListener('beforeunload', () => {
+			const { todos } = this.state
+			const json = JSON.stringify(todos)
+			localStorage.setItem('todos', json)
+			alert('Called un mount')
+		})
 	}
 
 	addTodo = (todo) => {
