@@ -11,14 +11,12 @@ class App extends Component {
 			const json = localStorage.getItem('todos')
 			const todos = JSON.parse(json)
 			this.setState({ todos })
-			console.log('Called did mount')
 		}
 
 		window.addEventListener('beforeunload', () => {
 			const { todos } = this.state
 			const json = JSON.stringify(todos)
 			localStorage.setItem('todos', json)
-			alert('Called un mount')
 		})
 	}
 
@@ -44,7 +42,7 @@ class App extends Component {
 		return (
 			<Container>
 				<Divider hidden />
-				<Header as="h1" textAlign="center">
+				<Header inverted as="h1" textAlign="center">
 					Todo List
 				</Header>
 				<Divider hidden />

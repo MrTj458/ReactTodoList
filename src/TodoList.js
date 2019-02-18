@@ -20,7 +20,7 @@ const TodoList = ({ todos, changeTodo, deleteTodo }) => {
 		)
 	} else {
 		return (
-			<Header as="h1" textAlign="center">
+			<Header inverted as="h1" textAlign="center">
 				You don't have any todos.
 			</Header>
 		)

@@ -13,6 +13,7 @@ class Todo extends React.Component {
 		} else {
 			this.setState({
 				editing: true,
+				stateTodo: this.props.todo,
 			})
 		}
 	}
